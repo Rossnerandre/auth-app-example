@@ -9,7 +9,9 @@
         <label>Password</label>
         <input type="password" class="form-control" v-model="password" />
       </div>
-      <button>Login</button>
+      <div class="form-group">
+        <button>Login</button>
+      </div>
     </form>
   </div>
 </template>
@@ -41,20 +43,13 @@ export default {
           )
           .then((result) => {
             console.log(result);
+            alert("Conexão efetuada token: " + result.data.token);
           })
           .catch((err) => {
-            console.log("asduhasduhdas" + err.message);
+            console.log(err.message);
+            alert(err.message);
           });
       } catch (error) {}
-
-      // const response = test
-      //   .then((result) => {
-      //     console.log(result);
-      //   })
-      //   .catch((err) => {
-      //     console.log("asduhasduhdas" + err.message);
-      //   });
-      // console.log(response);
     },
   },
 };
@@ -69,41 +64,45 @@ export default {
 }
 .container {
   display: grid;
-  justify-items: center;
-  align-items: center;
+  justify-content: center;
+  align-content: center;
   height: 100vh;
-  background: rgb(107, 107, 207);
+  background: #eee;
 }
 form {
   width: 350px;
-  padding: 0.5rem;
+  padding: 3rem 0.5rem;
   background: #ccc;
-  box-shadow: 0px 0px 0px 5px #000;
-  // inset 0px 10px 10px -5px rgba($color: #000000, $alpha: 0.5),
-  // inset 0px -10px 10px -5px rgba($color: #000000, $alpha: 0.5);
-  // -webkit-box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
-  //   inset 0px -10px 27px -8px #141414, 11px 5px 15px 5px rgba(0, 0, 0, 0);
-  // box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
-  //   inset 0px -10px 27px -8px #a31925, 11px 5px 15px 5px rgba(0, 0, 0, 0);
-
-  border-radius: 8px;
+  box-shadow: 5px 5px 5px 5px #000;
+  border-radius: 2px;
 
   .form-group {
     display: flex;
     padding: 0.5rem 0;
     flex-direction: column;
     label {
-      font-size: 1.4rem;
-      color: #000;
+      font-size: 1rem;
+      color: #222;
     }
     .form-control {
       margin: 0.5rem 0;
       font-size: 1.25rem;
+      padding: 0.5rem;
+      border-radius: 3px;
+      border: none;
     }
   }
   button {
     font-size: 1.5rem;
-    padding: 0.3rem;
+    padding: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    background: #0275d8;
+    border-radius: 3px;
+    color: #fff;
+    &:hover {
+      background: rgba($color: #0275d8, $alpha: 0.9);
+    }
   }
 }
 </style>
