@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
+import Dashboard from '../views/Dashboard.vue'
+import store from '../store/index.js';
 
 const routes = [
   {
@@ -13,6 +15,13 @@ const routes = [
     name: 'Login',
     component: Login
   },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    meta: { requiresAuth: true }
+
+  },
 ]
 
 const router = createRouter({
@@ -21,8 +30,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `${process.env.VUE_APP_TITLE} - ${to.name}`
-  next()
+  if (to.meta.requiresAuth && !store.getters.hasToken) {
+    next('/login')
+
+  } else {
+    document.title = `${process.env.VUE_APP_TITLE} - ${to.name}`
+    next()
+  }
 })
 
 export default router
