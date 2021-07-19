@@ -16,7 +16,8 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
+
 export default {
   data() {
     return {
@@ -26,30 +27,17 @@ export default {
   },
   methods: {
     async handleForm() {
+      const actionPayload = {
+        email: this.email,
+        password: this.password,
+      };
       try {
-        await axios
-          .post(
-            "http://auth-api-example.test/api/login",
-            {
-              email: this.email,
-              password: this.password,
-            },
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-            }
-          )
-          .then((result) => {
-            console.log(result);
-            alert("Conexão efetuada token: " + result.data.token);
-          })
-          .catch((err) => {
-            console.log(err.message);
-            alert(err.message);
-          });
-      } catch (error) {}
+        await this.$store.dispatch("login", actionPayload);
+        this.$router.replace("/dashboard");
+      } catch (err) {
+        // Colocar no UI
+        console.log(err.message);
+      }
     },
   },
 };
