@@ -15,6 +15,7 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .modal {
+  z-index: 1000;
   position: absolute;
   background: rgba($color: #000000, $alpha: 0.6);
   width: 100vw;

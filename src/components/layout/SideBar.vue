@@ -60,7 +60,7 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .navbar {
-  width: 300px;
+  width: 250px;
   height: 100%;
   background: #333;
   transition: 0.5s;

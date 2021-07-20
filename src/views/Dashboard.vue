@@ -2,20 +2,15 @@
   <spinner v-if="loading" />
   <div class="display-flex">
     <div><sidebar /></div>
-    <div><content :user="user" /></div>
+    <div>
+      <conteudo-base :user="user">
+        <template v-slot:header> <h1>Bem vindo a dashboard</h1> </template>
+      </conteudo-base>
+    </div>
   </div>
-  <!-- <div v-if="user">{{ user.id }}</div>
-  <div v-if="user">{{ user.name }}</div>
-  <div v-if="user">{{ user.email }}</div> -->
 </template>
 <script>
-import Sidebar from "../components/layout/SideBar.vue";
-import Content from "../components/layout/Content.vue";
-import Spinner from "../components/modals/Spinner.vue";
-
 export default {
-  components: { Sidebar, Content, Spinner },
-
   data() {
     return {
       user: [],
@@ -46,5 +41,9 @@ export default {
 <style lang="scss">
 .display-flex {
   display: flex;
+}
+
+.table {
+  border: 1px solid;
 }
 </style>
