@@ -1,0 +1,180 @@
+$white: #fff;
+$primary-light: #4791db;
+$primary-main: #1976d2;
+$primary-dark:#115293;
+$secondary-light: #e33371;
+$secondary-main: #dc004e;
+$secondary-dark: #9a0036;
+$error-light: #e57373;
+$error-main: #f44336;
+$error-dark: #d32f2f;
+$warning-light: #ffb74d;
+$warning-main: #ff9800;
+$warning-dark: #f57c00;
+$info-light: #64b5f6;
+$info-main: #2196f3;
+$info-dark: #1976d2;
+$success-light: #81c784;
+$success-main: #4caf50;
+$success-dark: #388e3c;
+$black-light: #777;
+$black-main: #555;
+$black-dark:#333;
+
+@mixin setBgColor($baseColor){
+    background-color: $baseColor;
+    border: $baseColor;
+    color: $white !important;
+
+}
+
+@mixin setBgColorAndHover($baseColor){
+  background-color: $baseColor;
+  border: $baseColor;
+  color: $white !important;
+  &:hover, &:active{
+    background-color: darken($baseColor, 5%)
+  }
+}
+.btn-primary-light{
+  @include setBgColorAndHover($primary-light);
+}
+
+
+.btn-primary-main{
+  @include setBgColorAndHover($primary-main);
+}
+
+.btn-primary-dark{
+  @include setBgColorAndHover($primary-dark);
+}
+
+.btn-secondary-light{
+  @include setBgColorAndHover($secondary-light);
+}
+.btn-secondary-main{
+  @include setBgColorAndHover($secondary-main);
+}
+.btn-secondary-dark{
+  @include setBgColorAndHover($secondary-dark);
+}
+.btn-error-light{
+  @include setBgColorAndHover($error-light);
+}
+
+.btn-error-main{
+  @include setBgColorAndHover($error-main);
+}
+
+.btn-error-dark{
+  @include setBgColorAndHover($error-dark);
+}
+
+.btn-warning-light{
+  @include setBgColorAndHover($warning-light);
+}
+
+.btn-warning-main{
+  @include setBgColorAndHover($warning-main);
+}
+
+.btn-warning-dark{
+  @include setBgColorAndHover($warning-dark);
+}
+
+.btn-info-light{
+  @include setBgColorAndHover($info-light);
+}
+.btn-info-main{
+  @include setBgColorAndHover($info-main);
+}
+.btn-info-dark{
+  @include setBgColorAndHover($info-dark);
+}
+
+.btn-success-light{
+  @include setBgColorAndHover($success-light);
+}
+.btn-success-main{
+  @include setBgColorAndHover($success-main);
+}
+.btn-success-dark{
+  @include setBgColorAndHover($success-dark);
+}
+
+//Colors
+
+.primary-light{
+  @include setBgColor($primary-light);
+}
+
+.primary-main{
+  @include setBgColor($primary-main);
+}
+
+.primary-dark{
+  @include setBgColor($primary-dark);
+}
+
+.secondary-light{
+  @include setBgColor($secondary-light);
+}
+.secondary-main{
+  @include setBgColor($secondary-main);
+}
+.secondary-dark{
+  @include setBgColor($secondary-dark);
+}
+.error-light{
+  @include setBgColor($error-light);
+}
+
+.error-main{
+  @include setBgColor($error-main);
+}
+
+.error-dark{
+  @include setBgColor($error-dark);
+}
+
+.warning-light{
+  @include setBgColor($warning-light);
+}
+
+.warning-main{
+  @include setBgColor($warning-main);
+}
+
+.warning-dark{
+  @include setBgColor($warning-dark);
+}
+
+.info.light{
+  @include setBgColor($info-light);
+}
+.info.main{
+  @include setBgColor($info-main);
+}
+.info-dark{
+  @include setBgColor($info-dark);
+}
+
+.success-light{
+  @include setBgColor($success-light);
+}
+.success-main{
+  @include setBgColor($success-main);
+}
+.success-dark{
+  @include setBgColor($success-dark);
+}
+
+.black-light{
+  @include setBgColor($black-light);
+}
+.black-main{
+  @include setBgColor($black-main);
+}
+.black-dark{
+  @include setBgColor($black-dark);
+}
