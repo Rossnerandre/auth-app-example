@@ -5,11 +5,11 @@
     </div>
     <div class="content">
       <header>
-        <slot name="header" class="titulo">
+        <slot name="header">
           <h1>Colocar titulo</h1>
         </slot>
       </header>
-      <div class="ondeeuto">
+      <div class="container-fluid row gx-3 gy-4">
         <slot>Add conteudo todo</slot>
       </div>
     </div>
@@ -26,7 +26,7 @@ export default {
   background: #ccc;
   right: 0;
   width: calc(100% - 250px);
-  height: 100%;
+  min-height: 100%;
   .topbar {
     height: 60px;
     display: flex;
@@ -46,8 +46,5 @@ export default {
       }
     }
   }
-}
-.ondeeuto {
-  display: flex;
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <div><sidebar /></div>
   <router-view />
 </template>
 

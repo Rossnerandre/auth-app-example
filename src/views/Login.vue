@@ -9,8 +9,9 @@
         <label>Password</label>
         <input type="password" class="form-control" v-model="password" />
       </div>
-      <div class="form-group">
-        <button>Login</button>
+      <div class="form-group text-center">
+        <button v-if="!isLoading">Login</button>
+        <spinner-btn v-else />
       </div>
     </form>
   </div>
@@ -23,6 +24,7 @@ export default {
     return {
       email: "",
       password: "",
+      isLoading: false,
     };
   },
   methods: {
@@ -31,11 +33,14 @@ export default {
         email: this.email,
         password: this.password,
       };
+      this.isLoading = true;
       try {
         await this.$store.dispatch("login", actionPayload);
+        this.isLoading = false;
         this.$router.replace("/dashboard");
       } catch (err) {
         // Colocar no UI
+        this.isLoading = false;
         console.log(err.message);
       }
     },
@@ -86,11 +91,15 @@ form {
     border: none;
     cursor: pointer;
     background: #0275d8;
+    width: 100%;
     border-radius: 3px;
     color: #fff;
     &:hover {
       background: rgba($color: #0275d8, $alpha: 0.9);
     }
   }
+}
+.text-center {
+  align-items: center;
 }
 </style>
